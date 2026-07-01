@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AFT · Gym Occupancy Tracker — Chelmsford</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏋️</text></svg>"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>🏋️ Gym Occupancy Tracker</h1>
+        <p class="sub" id="gym-name">Loading…</p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="cards">
+        <div class="card hero" id="current-card">
+          <span class="label">People in the gym now</span>
+          <span class="big" id="current-count">—</span>
+          <div class="bar"><div class="bar-fill" id="current-bar"></div></div>
+          <span class="muted" id="current-meta">—</span>
+        </div>
+
+        <div class="card">
+          <span class="label">Best time to go today</span>
+          <span class="big" id="best-time">—</span>
+          <span class="muted" id="best-time-meta">based on typical patterns</span>
+        </div>
+
+        <div class="card">
+          <span class="label">Quietest day</span>
+          <span class="big" id="quiet-day">—</span>
+          <span class="muted" id="quiet-day-meta"></span>
+        </div>
+
+        <div class="card">
+          <span class="label">Busiest day</span>
+          <span class="big" id="busy-day">—</span>
+          <span class="muted" id="busy-day-meta"></span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Typical week</h2>
+          <p class="muted">
+            Average people per 15-minute slot. Darker = busier. Hover for detail.
+          </p>
+        </div>
+        <div id="heatmap" class="heatmap"></div>
+        <div class="legend">
+          <span>Quiet</span>
+          <div class="legend-scale" id="legend-scale"></div>
+          <span>Busy</span>
+        </div>
+      </section>
+
+      <section class="two-col">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Average by hour</h2>
+            <p class="muted">Across all recorded days.</p>
+          </div>
+          <canvas id="hourly-chart" height="220"></canvas>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h2>When it's normally least full</h2>
+            <p class="muted">Top 10 quietest slots by day &amp; time.</p>
+          </div>
+          <ol class="ranklist" id="quietest-list"></ol>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Recent activity (last 48h)</h2>
+          <p class="muted">Live recorded samples.</p>
+        </div>
+        <canvas id="recent-chart" height="220"></canvas>
+      </section>
+
+      <footer>
+        <span id="footer-meta">—</span>
+        <button id="refresh-btn" title="Take a reading now">Collect now</button>
+      </footer>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

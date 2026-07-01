@@ -1,0 +1,16 @@
+{
+  "name": "aft-gym-occupancy-tracker",
+  "version": "1.0.0",
+  "description": "Automatic Fitness Tracker - records how busy The Gym Group Chelmsford is every 15 minutes and surfaces insights such as when it is normally least full.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "collect:once": "node --disable-warning=ExperimentalWarning src/collect-once.js",
+    "seed:demo": "node --disable-warning=ExperimentalWarning src/seed-demo.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "license": "MIT"
+}

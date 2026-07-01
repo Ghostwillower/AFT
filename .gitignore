@@ -1,0 +1,12 @@
+# Environment / secrets
+.env
+
+# Local database
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# Node
+node_modules/
+npm-debug.log*
